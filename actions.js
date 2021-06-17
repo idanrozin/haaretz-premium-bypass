@@ -6,8 +6,14 @@ document.addEventListener("DOMContentLoaded", function () {
         const regExp = /\[([^)]+)\]/;
         const desiredUrl = document.getElementById("url").value.toLowerCase();
         
+        if (!desiredUrl) {
+            activateToast("Something is wrong with the text you have entered ", 3000, false);
+            return;
+        }
+
         // check if url is valid.
         if (!desiredUrl.includes("haaretz") && !desiredUrl.includes("themarker")) {
+            activateToast("Please enter a valid haaretz or themarker URL ", 3000, false);
             return;
         }
 
@@ -19,9 +25,27 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         const articleIdIndex = desiredUrl.search(/1./);
+        activateToast("Redirecting to article...", 1000);
         setTimeout(() => window.location.replace(dummyUrl.replace(regExp, desiredUrl.substr(articleIdIndex, desiredUrl.length))), 500);
-
 
     }) 
 
 });
+
+
+const activateToast = (msg, timeout, success = true) => {
+    // Get the snackbar DIV
+    const toast = document.getElementById("toast");
+  
+    toast.textContent = msg;
+    
+    // Add the "show" class to DIV
+    toast.classList.add("show");
+    toast.classList.add(success ? "success" : "error");
+    
+    // After x seconds, remove the show class from DIV
+    setTimeout(() => {
+        toast.className = "";
+        toast.textContent = "..";
+    }, timeout);
+}
