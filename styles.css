@@ -1,24 +1,22 @@
 body {
-    /* background-color: #EFEFEF; */
-    /* background-color: #DEF2F1; */
     background-color: #17252A;
 }
 .container {
+    width: 70%;
     height: 50vh;
     padding: 0;
-    margin: 0;
+    margin: auto;
+    flex-direction: row;
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 
 .input-url {
-    width: 50vw;
+    width: 100%;
     border-radius: 10px;
     padding: 12px;
     border: 1px solid #FFF;
-    margin-bottom: 12px;
     background-color: #D3D3D3
 }
 
@@ -28,6 +26,7 @@ body {
 }
 
 button {
+    margin-left: 12px;
     border: none;
     border-radius: 10px;
     padding: 12px 48px;
@@ -36,4 +35,15 @@ button {
 }
 
 
-
+/* Medium devices (landscape tablets, 768px and up) */
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 768px),
+only screen and (max-width: 600px) {
+    .container {
+        width: 90%;
+        flex-direction: column;
+    }
+    input {
+        margin-bottom: 12px;
+    }
+}
