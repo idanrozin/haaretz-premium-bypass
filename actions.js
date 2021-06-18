@@ -3,7 +3,6 @@ document.addEventListener("DOMContentLoaded", function () {
     btn.addEventListener("click", () => {
         const HAARETZ_BASE_PLACEHOLDER_URL = "https://www-haaretz-co-il.cdn.ampproject.org/v/s/www.haaretz.co.il/amp/captain/software/.premium-[XXX]?amp_gsa=1&amp_js_v=a6&usqp=mq331AQHKAFQArABIA%3D%3D#amp_tf=From%20%251%24s&aoh=16199372885466&csi=1"
         const THE_MARKER_BASE_PLACEHOLDER_URL = "https://www-themarker-com.cdn.ampproject.org/v/s/www.themarker.com/amp/news/politics/.premium-[XXX]?amp_gsa=1&amp_js_v=a6#ampshare=https%3A%2F%2Fwww.themarker.com%2Fnews%2Fpolitics%2F.premium-1.9542972";
-        const regExp = /\[([^)]+)\]/;
         const desiredUrl = document.getElementById("url").value.toLowerCase();
         
         if (!desiredUrl) {
@@ -26,7 +25,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         const articleIdIndex = desiredUrl.search(/1./);
         activateToast("Redirecting to article...", 1000);
-        setTimeout(() => window.location.replace(dummyUrl.replace(regExp, desiredUrl.substr(articleIdIndex, desiredUrl.length))), 500);
+        setTimeout(() => window.location.replace(dummyUrl.replace(/\[([^)]+)\]/, desiredUrl.substr(articleIdIndex, desiredUrl.length))), 1000);
 
     }) 
 

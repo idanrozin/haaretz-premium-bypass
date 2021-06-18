@@ -1,9 +1,33 @@
-body {
-    background-color: #17252A;
+:root {
+    font-family: Arial, Helvetica, sans-serif;
 }
+
+body {
+    /* background-color: #17252A; */
+    background-color: #384449;
+}
+
+.title {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 32px;
+}
+
+.title h1 {
+    color: #D3D3D3;
+}
+
+.title h3 {
+    margin: 0;
+    color: #BABECC;
+    padding-top: 32px;
+}
+
 .container {
     width: 70%;
-    height: 50vh;
+    height: 30vh;
     padding: 0;
     margin: auto;
     flex-direction: row;
@@ -26,11 +50,13 @@ body {
 }
 
 button {
+    font-size: 1.2rem;
     margin-left: 12px;
     border: none;
     border-radius: 10px;
     padding: 12px 48px;
-    background-color: #448897;
+    background-color: #585F7A;
+    color: #FFF;
     cursor: pointer;
 }
 
@@ -64,19 +90,6 @@ button {
 }
 
 
-/* Medium devices (landscape tablets, 768px and up) */
-/* Extra small devices (phones, 600px and down) */
-@media only screen and (max-width: 768px),
-only screen and (max-width: 600px) {
-    .container {
-        width: 90%;
-        flex-direction: column;
-    }
-    input {
-        margin-bottom: 12px;
-    }
-}
-
 
 /* The toast - position it at the bottom and in the middle of the screen */
 #toast {
@@ -91,6 +104,7 @@ only screen and (max-width: 600px) {
     padding: 16px; /* Padding */
     position: fixed; /* Sit on top of the screen */
     z-index: 1; /* Add a z-index if needed */
+    transform: translateX(0);
     left: 50%; /* Center the toast */
     bottom: 30px; /* 30px from the bottom */
 }
@@ -129,3 +143,21 @@ only screen and (max-width: 600px) {
         opacity: 0;
     }
   }
+
+/* Medium devices (landscape tablets, 768px and up) */
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 768px),
+only screen and (max-width: 600px) {
+    .container {
+        width: 90%;
+        flex-direction: column;
+    }
+    input {
+        margin-bottom: 12px;
+    }
+
+    #toast {
+        transform: translateX(-7%);
+    }
+}
+
