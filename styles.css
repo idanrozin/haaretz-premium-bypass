@@ -14,21 +14,23 @@ body {
     align-items: center;
     padding-top: 32px;
     margin: 0 auto;
-    max-width: 670px;
+    /* max-width: 670px; */
 }
 
 .title h1 {
     color: #D3D3D3;
 }
 
-.title h3, h5 {
+.title h3 {
     margin: 0;
     color: #9094a1;
     padding-top: 32px;
 }
 
-.title h5 {
-    align-self: flex-start;
+.small-text {
+    position: relative;
+    bottom: -20px;
+    font-size: 0.85rem ;
 }
 
 .container {
@@ -173,24 +175,8 @@ only screen and (max-width: 600px) {
         margin-bottom: 12px;
     }
 
-    .title {
-        padding: 1rem;
-    }
-
-    .title > * { 
-        padding: 0 !important;
-    }
-
-    .title h1 {
-        font-size: 1.75rem;
-    }
-
     .title h3 {
-        max-width: 85vw;
-    }
-
-    .title h5 {
-        margin-top: 12px;
+        padding: 20px;
     }
 
     button#clear-btn {
