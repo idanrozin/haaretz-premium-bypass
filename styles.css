@@ -13,16 +13,22 @@ body {
     flex-direction: column;
     align-items: center;
     padding-top: 32px;
+    margin: 0 auto;
+    max-width: 750px;
 }
 
 .title h1 {
     color: #D3D3D3;
 }
 
-.title h3 {
+.title h3, h5 {
     margin: 0;
-    color: #BABECC;
+    color: #9094a1;
     padding-top: 32px;
+}
+
+.title h5 {
+    align-self: flex-start;
 }
 
 .container {
@@ -49,6 +55,10 @@ body {
     outline: none;
 }
 
+.buttons-container {
+    display: flex;
+}
+
 button {
     font-size: 1.2rem;
     margin-left: 12px;
@@ -60,15 +70,20 @@ button {
     cursor: pointer;
 }
 
+button:hover {
+    background-color: #585f7AD5;
+}
+
+button#clear-btn {
+    display: none;
+}
+
 #footer {
     position: absolute;
     bottom: 8px;
     right: 12px;
-    /* width: 100%; */
     text-align: center;
     cursor: pointer;
-
-    
 }
 
 #footer #link {
@@ -79,7 +94,6 @@ button {
 
 .github {
     background-image: url("resources/github.png");
-
     background-size: contain;
     background-repeat: no-repeat;
     filter: contrast(0.5);
@@ -89,7 +103,7 @@ button {
     margin-top: -1px;
 }
 
-
+/* toast styling and animations */
 
 /* The toast - position it at the bottom and in the middle of the screen */
 #toast {
@@ -144,6 +158,9 @@ button {
     }
   }
 
+
+  /* Media breakpoints */
+
 /* Medium devices (landscape tablets, 768px and up) */
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 768px),
@@ -159,5 +176,8 @@ only screen and (max-width: 600px) {
     #toast {
         transform: translateX(-7%);
     }
-}
 
+    button#clear-btn {
+        display: block;
+    }
+}
