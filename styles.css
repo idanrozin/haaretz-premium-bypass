@@ -61,20 +61,26 @@ button {
 }
 
 #footer {
+    display: flex;
     position: absolute;
     bottom: 8px;
-    right: 12px;
-    /* width: 100%; */
-    text-align: center;
-    cursor: pointer;
+    left: 0;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
 
-    
+.tooltip {
+    flex: 1 1 auto;
+    padding-left: 12px;
+    position: relative;
 }
 
 #footer #link {
     display: flex;
     color: #9E9E9E;
     cursor: pointer;
+    padding-right: 12px;
 }
 
 .github {
@@ -89,7 +95,19 @@ button {
     margin-top: -1px;
 }
 
-
+.tooltip .info::after {
+    content: "";
+    position: absolute;
+    /* top: 100%;
+    left: 50%; */
+    top: -30%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #0E558D transparent transparent transparent;
+    opacity: 0;
+  }
 
 /* The toast - position it at the bottom and in the middle of the screen */
 #toast {
@@ -143,6 +161,55 @@ button {
         opacity: 0;
     }
   }
+
+.info {
+    position: relative;
+    background-image: url("resources/info.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+}
+  .tooltip::after {
+    background-color: #0E558D;
+    border-radius: 100px;
+    padding: 6px 10px;
+    /* right:50%; */
+    /* bottom:-26px; */
+    /* z-index: 10; */
+    transition: 0.3s all;
+    transform: scale(1) translate(-90%, -31%);
+    opacity: 0;
+    min-width: 130px;
+
+
+
+    content: "haaretz is using google amp project to cache their articles. as long as they use it we can use it too. what I do is just wrapping the url you want in an amp cdn compatible url";
+    /* visibility: hidden; */
+    width: 120px;
+    /* background-color: black; */
+    color: #fff;
+    text-align: center;
+    /* border-radius: 6px; */
+    padding: 5px 0;
+    display: block;
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 10;
+    left: 187px;
+    /* margin-left: -60px; */
+    bottom: 20px;
+  }
+  
+  .tooltip:hover::after {
+      opacity: 1;
+  }
+
+.tooltip:hover .info::after {
+    opacity: 1;
+}   
+
 
 /* Medium devices (landscape tablets, 768px and up) */
 /* Extra small devices (phones, 600px and down) */
